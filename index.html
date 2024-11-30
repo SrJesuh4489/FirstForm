@@ -102,7 +102,6 @@
             cursor: pointer;
         }
 
-        /* Responsive adjustments */
         @media screen and (max-width: 600px) {
             body {
                 padding: 10px;
@@ -142,7 +141,6 @@
             }
         }
 
-        /* Ensure labels wrap properly on small screens */
         @media screen and (max-width: 400px) {
             label {
                 display: flex;
@@ -163,30 +161,29 @@
         <h2>¿Tienes lo necesario para enfrentarte al Vacio?</h2>
 
         <form action="https://formspree.io/f/xvgovvdw" method="POST">
-            <h3>1. ¿Como te llamas?</h3>
+            <h3>1. ¿Cómo te llamas?</h3>
             <input type="text" name="nombre" placeholder="Escribe tu nombre" required>
 
-            <h3>2. ¿Que edad tienes?</h3>
+            <h3>2. ¿Qué edad tienes?</h3>
             <label><input type="radio" name="edad" value="10-15" required> Entre 10 - 15 años</label>
             <label><input type="radio" name="edad" value="15-18"> Entre 15 - 18 años</label>
             <label><input type="radio" name="edad" value="18+"> Más de 18 años</label>
             <label><input type="radio" name="edad" value="-10"> Menos de 10 años</label>
 
-            <h3>3. ¿Con que dispositivo cuentas?</h3>
+            <h3>3. ¿Con qué dispositivo cuentas?</h3>
             <label><input type="checkbox" name="dispositivo" value="computadora"> Computadora</label>
-            <label><input type="checkbox" name="dispositivo" value="movil"> Dispositivo Movil</label>
+            <label><input type="checkbox" name="dispositivo" value="movil"> Dispositivo Móvil</label>
 
-            <h3>4. ¿Cuentas con una conexion a internet estable?</h3>
+            <h3>4. ¿Cuentas con una conexión a internet estable?</h3>
             <label><input type="radio" name="internet" value="si" required> Sí, cuento con un servicio de internet</label>
-            <label><input type="radio" name="internet" value="datos"> No, pero tengo la posibilidad de hacer una recarga de Datos Moviles</label>
+            <label><input type="radio" name="internet" value="datos"> No, pero tengo la posibilidad de hacer una recarga de Datos Móviles</label>
 
-            <h3>5. ¿Tienes alguna actividad u ocupacion programada? (De Diciembre a Febrero)</h3>
+            <h3>5. ¿Tienes alguna actividad u ocupación programada? (De diciembre a febrero)</h3>
             <label><input type="radio" name="actividad" value="proyecto" required> Sí, tengo un proyecto que ocupa todo mi tiempo</label>
             <label><input type="radio" name="actividad" value="disponibilidad"> Sí, pero tengo disponibilidad en la noche o en la mañana</label>
             <input type="text" name="horario" placeholder="Especifica el horario">
-
             <label><input type="radio" name="actividad" value="estudios"> No, pero posiblemente tenga que enfocarme en mis estudios completamente</label>
-            <label><input type="radio" name="actividad" value="viaje"> Posiblemente vaya de viaje o me mude pero tengo disponibilidad</label>
+            <label><input type="radio" name="actividad" value="viaje"> Posiblemente vaya de viaje o me mude, pero tengo disponibilidad</label>
             <input type="text" name="situacion" placeholder="Especificar la situación">
 
             <h3>6. ¿Cuentas con alguna discapacidad?</h3>
@@ -194,49 +191,66 @@
             <input type="text" name="discapacidad_detalle" placeholder="Especifica cuál">
             <label><input type="radio" name="discapacidad" value="no"> No</label>
 
-            <h3>7. ¿Tu Religion o creencias te impiden compartir cierto tipo de actividades ya sea virtualmente o en persona?</h3>
+            <h3>7. ¿Tu religión o creencias te impiden compartir cierto tipo de actividades ya sea virtualmente o en persona?</h3>
             <label><input type="radio" name="religion" value="si" required> Sí</label>
             <input type="text" name="religion_detalle" placeholder="Especifica cuál">
-            <label><input type="radio" name="religion" value="no"> No, wtf</label>
+            <label><input type="radio" name="religion" value="no"> No</label>
 
-            <h3>8. ¿Estas conciente de lo que estas haciendo?</h3>
-            <label><input type="radio" name="consciente" value="que" required>¿Que?</label>
+            <h3>8. ¿Qué tanto juegas Minecraft?</h3>
+            <label><input type="radio" name="minecraft_juego" value="basico" required> No lo juego mucho, solo lo básico</label>
+            <label><input type="radio" name="minecraft_juego" value="experto"> Soy un gordo Tryhard que vive Minecraft, respira Minecraft y come pollo asado con Pony Malta</label>
+            <label><input type="radio" name="minecraft_juego" value="primeravez"> Es mi primera vez jugando</label>
 
-            <h3>9. ¿Puedes escucharme?</h3>
-            <label><input type="radio" name="escuchar" value="detente1" required>porfavorhazquesedetenga</label>
-            <label><input type="radio" name="escuchar" value="detente2">porfavordetente</label>
-            <label><input type="radio" name="escuchar" value="basta">basta</label>
-            <label><input type="radio" name="escuchar" value="porfavor">porfavor</label>
+            <h3>9. ¿En dónde preferirías jugar Minecraft?</h3>
+            <label><input type="radio" name="minecraft_dispositivo" value="celular" required> En celular</label>
+            <label><input type="radio" name="minecraft_dispositivo" value="computador"> En Computador</label>
+            <label><input type="radio" name="minecraft_dispositivo" value="ambos"> Puedo jugar en ambos</label>
 
-            <h3>10. Espero que tomes la decisión correcta.</h3>
-            <label><input type="radio" name="decision" value="nadie" class="red-text" required>pero nadie vino.</label>
+            <h3>10. ¿Tienes cuenta de Discord?</h3>
+            <label><input type="radio" name="discord_cuenta" value="si" required> Sí</label>
+            <input type="text" name="discord_usuario" placeholder="Coloca tu cuenta de usuario">
+            <label><input type="radio" name="discord_cuenta" value="no"> No, me crearé una porque qué más</label>
 
+            <h3>11. ¿Estás consciente de lo que estás haciendo?</h3>
+            <label><input type="radio" name="consciente" value="que" required>¿Qué?</label>
+
+            <h3>12. ¿Puedes escucharme?</h3>
+            <label><input type="radio" name="escuchar" value="detente1" required>porfavorhazquesedetenga
+            <h3>12. ¿Puedes escucharme?</h3>
+            <label><input type="radio" name="escuchar" value="detente1" required> porfavorhazquesedetenga</label>
+            <label><input type="radio" name="escuchar" value="detente2"> porfavordetente</label>
+            <label><input type="radio" name="escuchar" value="basta"> basta</label>
+            <label><input type="radio" name="escuchar" value="porfavor"> porfavor</label>
+                
+            <h3>13. Espero que tomes la decisión correcta.</h3>
+            <label><input type="radio" name="decision" value="nadie" class="red-text" required> pero nadie vino.</label>
+                
             <h3>Información de Contacto</h3>
             <input type="email" name="_replyto" placeholder="Tu correo electrónico" required>
-
+                
             <input type="submit" value="Enviar">
-        </form>
-    </div>
-
-    <script>
-        function createStars() {
-            const starsContainer = document.querySelector('.background-stars');
-            const numStars = 100;
-
-            for (let i = 0; i < numStars; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
+            </form>
+            </div>
                 
-                star.style.width = `${Math.random() * 3}px`;
-                star.style.height = star.style.width;
-                star.style.left = `${Math.random() * 100}%`;
-                star.style.top = `${Math.random() * 100}%`;
+            <script>
+                function createStars() {
+                    const starsContainer = document.querySelector('.background-stars');
+                    const numStars = 100;
                 
-                starsContainer.appendChild(star);
-            }
-        }
+                    for (let i = 0; i < numStars; i++) {
+                        const star = document.createElement('div');
+                        star.classList.add('star');
+                
+                        star.style.width = `${Math.random() * 3}px`;
+                        star.style.height = star.style.width;
+                        star.style.left = `${Math.random() * 100}%`;
+                        star.style.top = `${Math.random() * 100}%`;
 
-        createStars();
+                        starsContainer.appendChild(star);
+                    }
+                }
+                
+            createStars();
     </script>
-</body>
+  </body>
 </html>
