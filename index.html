@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Void Explorers v2</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, black, #1e3a4c);
+            color: white;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .background-stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+
+        .form-container {
+            background: rgba(0,0,0,0.5);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        input[type="text"], input[type="email"], textarea, input[type="radio"], input[type="checkbox"] {
+            margin: 10px 0;
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid #2be4ff;
+            color: white;
+        }
+
+        input[type="submit"] {
+            background-color: #2be4ff;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2be4ff;
+        }
+
+        h2, h3 {
+            color: #2be4ff;
+            border-bottom: 2px solid #2be4ff;
+            padding-bottom: 10px;
+        }
+
+        .red-text {
+            color: red;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-stars"></div>
+    <div class="form-container">
+        <h1>Void Explorers v2</h1>
+        <h2>¿Tienes lo necesario para enfrentarte al Vacio?</h2>
+
+        <!-- Reemplaza "TU_CODIGO_DE_FORMSPREE" con tu código real de Formspree -->
+        <form action="https://formspree.io/f/TU_CODIGO_DE_FORMSPREE" method="POST">
+            <h3>1. ¿Como te llamas?</h3>
+            <input type="text" name="nombre" placeholder="Escribe tu nombre" required>
+
+            <h3>2. ¿Que edad tienes?</h3>
+            <label><input type="radio" name="edad" value="10-15" required> Entre 10 - 15 años</label>
+            <label><input type="radio" name="edad" value="15-18"> Entre 15 - 18 años</label>
+            <label><input type="radio" name="edad" value="18+"> Más de 18 años</label>
+            <label><input type="radio" name="edad" value="-10"> Menos de 10 años</label>
+
+            <h3>3. ¿Con que dispositivo cuentas?</h3>
+            <label><input type="checkbox" name="dispositivo" value="computadora"> Computadora</label>
+            <label><input type="checkbox" name="dispositivo" value="movil"> Dispositivo Movil</label>
+
+            <h3>4. ¿Cuentas con una conexion a internet estable?</h3>
+            <label><input type="radio" name="internet" value="si" required> Sí, cuento con un servicio de internet</label>
+            <label><input type="radio" name="internet" value="datos"> No, pero tengo la posibilidad de hacer una recarga de Datos Moviles</label>
+
+            <h3>5. ¿Tienes alguna actividad u ocupacion programada? (De Diciembre a Febrero)</h3>
+            <label><input type="radio" name="actividad" value="proyecto" required> Sí, tengo un proyecto que ocupa todo mi tiempo</label>
+            <label><input type="radio" name="actividad" value="disponibilidad"> Sí, pero tengo disponibilidad en la noche o en la mañana</label>
+            <input type="text" name="horario" placeholder="Especifica el horario">
+
+            <label><input type="radio" name="actividad" value="estudios"> No, pero posiblemente tenga que enfocarme en mis estudios completamente</label>
+            <label><input type="radio" name="actividad" value="viaje"> Posiblemente vaya de viaje o me mude pero tengo disponibilidad</label>
+            <input type="text" name="situacion" placeholder="Especificar la situación">
+
+            <h3>6. ¿Cuentas con alguna discapacidad?</h3>
+            <label><input type="radio" name="discapacidad" value="si" required> Sí</label>
+            <input type="text" name="discapacidad_detalle" placeholder="Especifica cuál">
+            <label><input type="radio" name="discapacidad" value="no"> No</label>
+
+            <h3>7. ¿Tu Religion o creencias te impiden compartir cierto tipo de actividades ya sea virtualmente o en persona?</h3>
+            <label><input type="radio" name="religion" value="si" required> Sí</label>
+            <input type="text" name="religion_detalle" placeholder="Especifica cuál">
+            <label><input type="radio" name="religion" value="no"> No, wtf</label>
+
+            <h3>8. ¿Estas conciente de lo que estas haciendo?</h3>
+            <label><input type="radio" name="consciente" value="que" required>¿Que?</label>
+
+            <h3>9. ¿Puedes escucharme?</h3>
+            <label><input type="radio" name="escuchar" value="detente1" required>porfavorhazquesedetenga</label>
+            <label><input type="radio" name="escuchar" value="detente2">porfavordetente</label>
+            <label><input type="radio" name="escuchar" value="basta">basta</label>
+            <label><input type="radio" name="escuchar" value="porfavor">porfavor</label>
+
+            <h3>10. Espero que tomes la decisión correcta.</h3>
+            <label><input type="radio" name="decision" value="nadie" class="red-text" required>pero nadie vino.</label>
+
+            <h3>Información de Contacto</h3>
+            <input type="email" name="_replyto" placeholder="Tu correo electrónico" required>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+    <script>
+        function createStars() {
+            const starsContainer = document.querySelector('.background-stars');
+            const numStars = 100;
+
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                star.style.width = `${Math.random() * 3}px`;
+                star.style.height = star.style.width;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+
+        createStars();
+    </script>
+</body>
+</html>
