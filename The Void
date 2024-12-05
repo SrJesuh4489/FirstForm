@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo espera...</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        #countdown, #video-start, #video-container, #index-content {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #countdown {
+            font-size: clamp(2rem, 10vw, 10rem);
+            font-weight: bold;
+            z-index: 10;
+        }
+        #video-start, #video-container, #index-content {
+            display: none;
+            z-index: 20;
+            background: black;
+        }
+        #start-video-btn {
+            font-size: 2rem;
+            padding: 10px 20px;
+            background-color: cyan;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+        #background-video {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown">00:00:00</div>
+    
+    <div id="video-start">
+        <button id="start-video-btn">Trailer 1 Oficial</button>
+    </div>
+
+    <div id="video-container">
+        <video id="background-video" src="" title="YA ERA HORA"></video>
+    </div>
+
+    <div id="index-content">
+        <img src="https://via.placeholder.com/300x200" alt="Header">
+        <p>Texto adicional</p>
+        <div class="download-buttons">
+            <button class="download-btn">Descargar Addon</button>
+            <button class="download-btn">Descargar Soundtrack</button>
+        </div>
+        <p>Texto de pie de página</p>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            const videoStart = document.getElementById('video-start');
+            const videoContainer = document.getElementById('video-container');
+            const indexContent = document.getElementById('index-content');
+            const video = document.getElementById('background-video');
+            const startVideoBtn = document.getElementById('start-video-btn');
+            
+            let totalSeconds = 1 * 1 * 10; // Tiempo de contador
+
+            function formatTime(seconds) {
+                const hours = Math.floor(seconds / 3600);
+                const minutes = Math.floor((seconds % 3600) / 60);
+                const secs = seconds % 60;
+                return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+            }
+
+            const timer = setInterval(() => {
+                if (totalSeconds > 0) {
+                    totalSeconds--;
+                    countdownElement.textContent = formatTime(totalSeconds);
+                } else {
+                    clearInterval(timer);
+                    countdownElement.style.display = 'none';
+                    document.title = 'YA ERA HORA';
+                    videoStart.style.display = 'flex';
+                }
+            }, 1000);
+
+            startVideoBtn.addEventListener('click', () => {
+                videoStart.style.display = 'none';
+                videoContainer.style.display = 'flex';
+                video.play();
+
+                video.onended = () => {
+                    videoContainer.style.display = 'none';
+                    indexContent.style.display = 'block';
+                    document.title = 'The Void';
+                };
+            });
+        }
+
+        updateCountdown();
+    </script>
+</body>
+</html>
