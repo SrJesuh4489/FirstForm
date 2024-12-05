@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo espera...</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        #countdown {
+            color: white;
+            font-size: clamp(2rem, 10vw, 10rem);
+            font-weight: bold;
+            z-index: 10;
+            position: relative;
+            text-align: center;
+        }
+        #background-image {
+            position: absolute;
+            width: clamp(300px, 50%, 750px);
+            height: clamp(225px, 75%, 600px);
+            object-fit: cover;
+            opacity: 0.5;
+            z-index: 1;
+        }
+        #index-content {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, black, cyan);
+            z-index: 20;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .download-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .download-btn {
+            background-color: cyan;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown">00:00:00</div>
+    <img id="background-image" src="https://via.placeholder.com/750x600" alt="Background">
+    
+    <div id="index-content">
+        <img src="https://via.placeholder.com/300x200" alt="Header" style="max-width: 100%; height: auto;">
+        <p>Texto adicional</p>
+        <div class="download-buttons">
+            <button class="download-btn">Descargar Addon</button>
+            <button class="download-btn">Descargar Soundtrack</button>
+        </div>
+        <p>Texto de pie de página</p>
+    </div>
+    <script>
+        function updateCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            const indexContent = document.getElementById('index-content');
+            let totalSeconds = 1 * 1 * 10; // 48 horas en segundos
+            function formatTime(seconds) {
+                const hours = Math.floor(seconds / 3600);
+                const minutes = Math.floor((seconds % 3600) / 60);
+                const secs = seconds % 60;
+                return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+            }
+            const timer = setInterval(() => {
+                if (totalSeconds > 0) {
+                    totalSeconds--;
+                    countdownElement.textContent = formatTime(totalSeconds);
+                } else {
+                    clearInterval(timer);
+                    countdownElement.style.display = 'none';
+                    document.getElementById('background-image').style.display = 'none';
+                    indexContent.style.display = 'block';
+                    document.title = 'The Void';
+                }
+            }, 1000);
+        }
+        updateCountdown();
+    </script>
+</body>
+</html>
